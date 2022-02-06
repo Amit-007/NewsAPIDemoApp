@@ -13,6 +13,7 @@ struct NewsArticleDetailView<ViewModel>: View where ViewModel: NewsArticleDetail
     
     private let padding: CGFloat = 15
     private let spacing: CGFloat = 8
+    private let imageHeight: CGFloat = 200
     private let lineLimit: Int = 3
 
     @ObservedObject var viewModel: ViewModel
@@ -21,6 +22,13 @@ struct NewsArticleDetailView<ViewModel>: View where ViewModel: NewsArticleDetail
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: spacing) {
+                if let imagePath = article.urlToImage {
+                    ArticleImageView(placeholder: {
+                        Color.red
+                    }, url: imagePath)
+                        .frame(width: UIScreen.main.bounds.width, height: imageHeight, alignment: .center)
+                        .clipped()
+                }
                 Spacer()
                 Text(article.title ?? .empty)
                     .foregroundColor(.primary)

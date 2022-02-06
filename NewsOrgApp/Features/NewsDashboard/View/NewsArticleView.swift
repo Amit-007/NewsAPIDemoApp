@@ -13,15 +13,18 @@ struct NewsArticleView: View {
     
     private let padding: CGFloat = 15
     private let spacing: CGFloat = 8
+    private let opacity: CGFloat = 0.4
+    private let imageHeight: CGFloat = 600
+    private let textHeight: CGFloat = 250
     private let lineLimit: Int = 3
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             if let imagePath = article.urlToImage {
                 ArticleImageView(placeholder: {
-                    Color.red
+                    Color.gray
                 }, url: imagePath)
-                    .frame(width: UIScreen.main.bounds.width, height: 600, alignment: .center)
+                    .frame(width: UIScreen.main.bounds.width, height: imageHeight, alignment: .center)
                     .clipped()
             }
             Spacer()
@@ -57,10 +60,9 @@ struct NewsArticleView: View {
                     .padding([.top, .horizontal], padding)
                     .padding(.bottom, padding)
             }
-            .frame(width: UIScreen.main.bounds.width, height: 250)
-            .padding(.bottom, .zero)
+            .frame(width: UIScreen.main.bounds.width, height: textHeight)
             .background (
-                Color.black.opacity(0.4)
+                Color.black.opacity(opacity)
             )
         }
     }
