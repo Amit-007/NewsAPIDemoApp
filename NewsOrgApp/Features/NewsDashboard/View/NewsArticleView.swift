@@ -7,67 +7,29 @@
 
 import SwiftUI
 
+// `NewsArticleView` This View is responsible to render News Article
 struct NewsArticleView: View {
     
+    // MARK: - Variables -
     var article: Article
+    let padding: CGFloat = 15
+    let spacing: CGFloat = 8
+    let opacity: CGFloat = 0.4
+    let imageHeight: CGFloat = 600
+    let textHeight: CGFloat = 250
+    let lineLimit: Int = 3
     
-    private let padding: CGFloat = 15
-    private let spacing: CGFloat = 8
-    private let opacity: CGFloat = 0.4
-    private let imageHeight: CGFloat = 600
-    private let textHeight: CGFloat = 250
-    private let lineLimit: Int = 3
-    
+    // MARK: - View Body -
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            if let imagePath = article.urlToImage {
-                ArticleImageView(placeholder: {
-                    Color.gray
-                }, url: imagePath)
-                    .frame(width: UIScreen.main.bounds.width, height: imageHeight, alignment: .center)
-                    .clipped()
-            }
+            articleImageView
             Spacer()
-            VStack(alignment: .leading, spacing: spacing) {
-                Spacer()
-                Text(article.title ?? .empty)
-                    .foregroundColor(.white)
-                    .font(.headline)
-                    .bold()
-                    .multilineTextAlignment(.leading)
-                    .padding([.top, .horizontal], padding)
-                    .show(when: !(article.title?.isEmptyString ?? true))
-                Text(article.content ?? .empty)
-                    .foregroundColor(.white)
-                    .font(.subheadline)
-                    .bold()
-                    .lineLimit(lineLimit)
-                    .multilineTextAlignment(.leading)
-                    .padding([.top, .horizontal], padding)
-                    .show(when: !(article.content?.isEmptyString ?? true))
-                Text(article.displayDate ?? .empty)
-                    .foregroundColor(.white)
-                    .font(.callout)
-                    .bold()
-                    .italic()
-                    .padding([.top, .horizontal], padding)
-                    .show(when: !(article.displayDate?.isEmptyString ?? true))
-                Text(article.footnote)
-                    .foregroundColor(.white)
-                    .font(.caption)
-                    .bold()
-                    .multilineTextAlignment(.leading)
-                    .padding([.top, .horizontal], padding)
-                    .padding(.bottom, padding)
-            }
-            .frame(width: UIScreen.main.bounds.width, height: textHeight)
-            .background (
-                Color.black.opacity(opacity)
-            )
+            articleTextDetailView
         }
     }
 }
 
+// MARK: - Preview Provider -
 struct NewsArticleView_Previews: PreviewProvider {
     static var previews: some View {
         NewsArticleView(article: Article.build())

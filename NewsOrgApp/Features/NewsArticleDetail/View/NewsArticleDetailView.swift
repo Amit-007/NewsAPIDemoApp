@@ -11,55 +11,20 @@ struct NewsArticleDetailView<ViewModel>: View where ViewModel: NewsArticleDetail
     
     var article: Article
     
-    private let padding: CGFloat = 15
-    private let spacing: CGFloat = 8
-    private let imageHeight: CGFloat = 200
-    private let lineLimit: Int = 3
-
+    let padding: CGFloat = 15
+    let spacing: CGFloat = 8
+    let imageHeight: CGFloat = 200
+    let lineLimit: Int = 3
+    
     @ObservedObject var viewModel: ViewModel
     @State var isLoading: Bool = true
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: spacing) {
-                if let imagePath = article.urlToImage {
-                    ArticleImageView(placeholder: {
-                        Color.red
-                    }, url: imagePath)
-                        .frame(width: UIScreen.main.bounds.width, height: imageHeight, alignment: .center)
-                        .clipped()
-                }
+                newsArticleImageView
                 Spacer()
-                Text(article.title ?? .empty)
-                    .foregroundColor(.primary)
-                    .font(.title2)
-                    .bold()
-                    .multilineTextAlignment(.leading)
-                    .padding(.horizontal, padding)
-                    .padding(.bottom, padding)
-                    .show(when: !(article.title?.isEmptyString ?? true))
-                Text(article.description ?? .empty)
-                    .foregroundColor(.primary)
-                    .font(.body)
-                    .bold()
-                    .multilineTextAlignment(.leading)
-                    .padding(.horizontal, padding)
-                    .show(when: !(article.description?.isEmptyString ?? true))
-                LikesCommentsToolbarView(likes: viewModel.likes.likes ?? .zero,
-                                         comments: viewModel.comments.comments ?? .zero)
-                Text(article.content ?? .empty)
-                    .foregroundColor(.primary)
-                    .lineLimit(lineLimit)
-                    .font(.caption)
-                    .multilineTextAlignment(.leading)
-                    .padding(.horizontal, padding)
-                    .show(when: !(article.content?.isEmptyString ?? true))
-                Text(article.footnote)
-                    .foregroundColor(.gray)
-                    .font(.caption)
-                    .bold()
-                    .multilineTextAlignment(.leading)
-                    .padding(.horizontal, padding)
+                newsArticleDescription
             }
             .onAppear {
                 viewModel.fetchNewsArticleCommentsAndLikes {

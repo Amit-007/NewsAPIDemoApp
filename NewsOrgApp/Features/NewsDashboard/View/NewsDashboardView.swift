@@ -11,6 +11,7 @@ struct NewsDashboardView<ViewModel>: View where ViewModel: NewsDashboardViewMode
     
     @ObservedObject var viewModel: ViewModel
     @State var isLoading: Bool = true
+    private let delay: Double = 0.5
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -25,7 +26,7 @@ struct NewsDashboardView<ViewModel>: View where ViewModel: NewsDashboardViewMode
         .buttonStyle(PlainButtonStyle())
         .onAppear {
             viewModel.fetchNewsHeadlines {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                     self.isLoading = false
                 }
             }
