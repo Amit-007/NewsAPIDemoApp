@@ -19,4 +19,10 @@ To Run the project.
 
 3. Select a Simulator & Run the Project.
 
+Third Party SDK:
+
+> - `SDWebImage` is integrated as a third party SDK via SPM(Swift Package Manager). Its used in image display. 
+> - `SDWebImage` can be found at URL https://github.com/SDWebImage/SDWebImage .
+> -  When project is opened in XCode. XCode will automatically download required package.
+
 
