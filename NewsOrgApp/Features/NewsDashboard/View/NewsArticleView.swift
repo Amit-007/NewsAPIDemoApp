@@ -16,8 +16,15 @@ struct NewsArticleView: View {
     private let lineLimit: Int = 3
     
     var body: some View {
-        ZStack {
-            Color.gray
+        ZStack(alignment: .bottomLeading) {
+            if let imagePath = article.urlToImage {
+                ArticleImageView(placeholder: {
+                    Color.red
+                }, url: imagePath)
+                    .frame(width: UIScreen.main.bounds.width, height: 600, alignment: .center)
+                    .clipped()
+            }
+            Spacer()
             VStack(alignment: .leading, spacing: spacing) {
                 Spacer()
                 Text(article.title ?? .empty)
@@ -50,6 +57,11 @@ struct NewsArticleView: View {
                     .padding([.top, .horizontal], padding)
                     .padding(.bottom, padding)
             }
+            .frame(width: UIScreen.main.bounds.width, height: 250)
+            .padding(.bottom, .zero)
+            .background (
+                Color.black.opacity(0.4)
+            )
         }
     }
 }
