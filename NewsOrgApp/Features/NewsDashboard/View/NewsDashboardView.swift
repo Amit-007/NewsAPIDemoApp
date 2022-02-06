@@ -15,11 +15,18 @@ struct NewsDashboardView<ViewModel>: View where ViewModel: NewsDashboardViewMode
     
     var body: some View {
         ScrollView(showsIndicators: false) {
-            ForEach(viewModel.articles, id:\.id) { article in
-                NavigationLink(destination: NewsArticleDetailView(article: article,
-                                                                  viewModel: NewsArticleDetailViewModel(articleID: article.articleID,
-                                                                                                        webservice: NewsDetailWebService()))) {
-                    NewsArticleView(article: article)
+            if viewModel.hasErrorOccured.occured {
+                    Text("\n\n\n\n\n\nSome Error Occured, please check ApiKey & make sure its included")
+                    .font(.largeTitle)
+                    .bold()
+                    .padding()
+            } else {
+                ForEach(viewModel.articles, id:\.id) { article in
+                    NavigationLink(destination: NewsArticleDetailView(article: article,
+                                                                      viewModel: NewsArticleDetailViewModel(articleID: article.articleID,
+                                                                                                            webservice: NewsDetailWebService()))) {
+                        NewsArticleView(article: article)
+                    }
                 }
             }
         }
