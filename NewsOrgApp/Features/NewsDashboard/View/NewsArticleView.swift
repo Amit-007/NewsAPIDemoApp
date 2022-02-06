@@ -11,32 +11,37 @@ struct NewsArticleView: View {
     
     var article: Article
     
+    private let padding: CGFloat = 15
+    private let spacing: CGFloat = 8
+    private let lineLimit: Int = 3
+    
     var body: some View {
         ZStack {
             Color.gray
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading, spacing: spacing) {
                 Spacer()
-                Text(article.title ?? "")
+                Text(article.title ?? .empty)
                     .foregroundColor(.white)
                     .font(.headline)
                     .bold()
                     .multilineTextAlignment(.leading)
-                    .padding([.top, .horizontal], 10)
+                    .padding([.top, .horizontal], padding)
                     .show(when: !(article.title?.isEmptyString ?? true))
-                Text(article.content ?? "")
+                Text(article.content ?? .empty)
                     .foregroundColor(.white)
                     .font(.subheadline)
                     .bold()
-                    .lineLimit(3)
+                    .lineLimit(lineLimit)
                     .multilineTextAlignment(.leading)
-                    .padding([.top, .horizontal], 10)
+                    .padding([.top, .horizontal], padding)
                     .show(when: !(article.content?.isEmptyString ?? true))
                 Text(article.footnote)
                     .foregroundColor(.white)
                     .font(.caption)
                     .bold()
-                    .padding([.top, .horizontal], 10)
-                    .padding(.bottom, 25)
+                    .multilineTextAlignment(.leading)
+                    .padding([.top, .horizontal], padding)
+                    .padding(.bottom, padding)
             }
         }
     }

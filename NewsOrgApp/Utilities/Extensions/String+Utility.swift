@@ -20,4 +20,7 @@ extension String {
     var formattedArticleID: String {
         replacingOccurrences(of: "https://", with: "").replacingOccurrences(of: "/", with: "-")
     }
+    
+    static let empty = ""
+    static let pipe = " | "
 }

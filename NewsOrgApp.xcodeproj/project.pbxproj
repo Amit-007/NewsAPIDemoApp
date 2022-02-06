@@ -61,6 +61,7 @@
 		30DD944D27AFD1310072BC12 /* MockSuccessfulNewsDetailWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DD944C27AFD1310072BC12 /* MockSuccessfulNewsDetailWebService.swift */; };
 		30DD944F27AFD1C80072BC12 /* MockFailureNewsDetailWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DD944E27AFD1C80072BC12 /* MockFailureNewsDetailWebService.swift */; };
 		30DD945127AFD2210072BC12 /* NewsArticleDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DD945027AFD2210072BC12 /* NewsArticleDetailViewModelTests.swift */; };
+		30DD945327AFD7E60072BC12 /* SystemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DD945227AFD7E60072BC12 /* SystemImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +139,7 @@
 		30DD944C27AFD1310072BC12 /* MockSuccessfulNewsDetailWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSuccessfulNewsDetailWebService.swift; sourceTree = "<group>"; };
 		30DD944E27AFD1C80072BC12 /* MockFailureNewsDetailWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFailureNewsDetailWebService.swift; sourceTree = "<group>"; };
 		30DD945027AFD2210072BC12 /* NewsArticleDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsArticleDetailViewModelTests.swift; sourceTree = "<group>"; };
+		30DD945227AFD7E60072BC12 /* SystemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +301,7 @@
 				30844A3F27AED68300F361A2 /* View+Redacted.swift */,
 				30844A4B27AEF2A600F361A2 /* View+Visibility.swift */,
 				30844A4D27AEF2F700F361A2 /* String+Utility.swift */,
+				30DD945227AFD7E60072BC12 /* SystemImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				30844A3C27AED3E000F361A2 /* Article.swift in Sources */,
 				30844A4C27AEF2A600F361A2 /* View+Visibility.swift in Sources */,
 				30844A2B27AE658C00F361A2 /* Publisher+Decodable.swift in Sources */,
+				30DD945327AFD7E60072BC12 /* SystemImage.swift in Sources */,
 				308449F927AE4F6D00F361A2 /* NewsArticleView.swift in Sources */,
 				30844A3327AE658C00F361A2 /* Error+Utils.swift in Sources */,
 				30844A6C27AFB76A00F361A2 /* NewsArticleDetailViewModelProtocol.swift in Sources */,

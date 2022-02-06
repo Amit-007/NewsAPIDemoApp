@@ -42,17 +42,25 @@ struct Article: Codable, Identifiable, Equatable {
         urlToImage = try values.decodeIfPresent(String.self, forKey: .urlToImage)
         publishedAt = try values.decodeIfPresent(String.self, forKey: .publishedAt)
         content = try values.decodeIfPresent(String.self, forKey: .content)
-        footnote = ""
+        footnote = .empty
+        // Footnote is a combination of author & sourceName.
+        // The ideal format is AUTHORNAME | Source
+        // However if AUTHORNAME is Null or Empty, it will be displayed as sourcename only
+        // If both Author & Source are not there footnote will be empty
         if let authorName = author {
             footnote = authorName.uppercased()
             if let sourceName = source?.name {
-                footnote = footnote + " | " + sourceName
+                if !footnote.isEmptyString {
+                    footnote = footnote + .pipe + sourceName
+                } else {
+                    footnote = sourceName
+                }
             }
         }
         else if let sourceName = source?.name {
             footnote = sourceName
         }
-        articleID = ""
+        articleID = .empty
         if let safeURL = url {
             articleID = safeURL.formattedArticleID
         }

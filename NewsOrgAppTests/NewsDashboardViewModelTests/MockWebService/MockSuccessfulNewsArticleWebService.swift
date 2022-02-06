@@ -11,7 +11,7 @@ import Combine
 
 class MockSuccessfulNewsArticleWebService: NewsArticleWebServiceProtocol {
    
-    var baseURL: String = ""
+    var baseURL: String = .empty
 
     func fetchTopHeadlines(pageNumber: Int) -> AnyPublisher<NewsHeadlines, Error> {
         let mockArticles = NewsHeadlines.build()

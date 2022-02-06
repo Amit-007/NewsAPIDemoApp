@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct LikesCommentsToolbarView: View {
+    
     let likes: Int
     let comments: Int
     
+    private let height: CGFloat = 30
+    private let width: CGFloat = 30
+
     var body: some View {
         VStack {
             Divider()
             HStack(alignment: .center) {
                 VStack {
-                    Image(systemName: "heart.fill")
+                    Image(systemName: SystemImage.heartFilled.rawValue)
                         .resizable()
-                        .frame(width: 30, height: 30, alignment: .center)
+                        .frame(width: width, height: height, alignment: .center)
                         .foregroundColor(.red)
                     Text("\(likes)")
                         .foregroundColor(.black)
@@ -27,9 +31,9 @@ struct LikesCommentsToolbarView: View {
                 }
                 Spacer()
                 VStack {
-                    Image(systemName: "message.fill")
+                    Image(systemName: SystemImage.messageFilled.rawValue)
                         .resizable()
-                        .frame(width: 30, height: 30, alignment: .center)
+                        .frame(width: width, height: height, alignment: .center)
                         .foregroundColor(.black)
                     Text("\(comments)")
                         .foregroundColor(.black)

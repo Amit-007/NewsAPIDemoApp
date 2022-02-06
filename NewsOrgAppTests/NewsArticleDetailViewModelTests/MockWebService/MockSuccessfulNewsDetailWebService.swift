@@ -12,7 +12,7 @@ import Combine
 
 class MockSuccessfulNewsDetailWebService: NewsDetailWebServiceProtocol {
    
-    var baseURL: String = ""
+    var baseURL: String = .empty
     
     func fetchLikes(for articleID: String) -> AnyPublisher<Likes, Error> {
         let mockLikes = Likes.build()
