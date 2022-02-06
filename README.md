@@ -9,11 +9,11 @@ To Run the project.
 1. Take a clone of the repository.
 2. Include the above mentioned ApiKey into Info.Plist by the below mentioned steps - 
 
-    i) Navigate to project Settings
-    ii) Select Targets - NewsOrgApp
-    iii) Navigate to Info Tab
-    iv) Go To Custom iOS Target Properties & enter value in ApiKey
-    V) Doing the above steps will update value of ApiKey in Info.plist file
+    - Navigate to project Settings
+    - Select Targets - NewsOrgApp
+    - Navigate to Info Tab
+    - Go To Custom iOS Target Properties & enter value in ApiKey
+    - Doing the above steps will update value of ApiKey in Info.plist file
 
     The above mentioned steps are necessary as Info.Plist is not directly available now.
 
