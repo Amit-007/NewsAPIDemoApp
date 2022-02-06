@@ -24,4 +24,12 @@ class StringTestCases: XCTestCase {
         XCTAssertEqual("https://www.theverge.com/2020/7/21/21332300/nikon-z5-full-frame-mirrorless-camera-price-release-date-specs/index.html".formattedArticleID, "www.theverge.com-2020-7-21-21332300-nikon-z5-full-frame-mirrorless-camera-price-release-date-specs-index.html")
         XCTAssertNotEqual("https://www.theverge.com/2020/7/21/21332300/nikon-z5-full-frame-mirrorless-camera-price-release-date-specs/index.html".formattedArticleID, "https://www.theverge.com/2020/7/21/21332300/nikon-z5-full-frame-mirrorless-camera-price-release-date-specs/index.html")
     }
+    
+    func testPipe() {
+        XCTAssertEqual(.pipe, " | ")
+    }
+    
+    func testEmptyString() {
+        XCTAssertEqual(.empty, "")
+    }
 }
