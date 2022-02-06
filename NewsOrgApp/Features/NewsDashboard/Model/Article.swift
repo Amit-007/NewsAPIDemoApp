@@ -20,6 +20,7 @@ struct Article: Codable, Identifiable, Equatable {
     var publishedAt: String?
     var content: String?
     var articleID: String
+    var displayDate: String?
     
     enum CodingKeys: String, CodingKey {
         case source = "source"
@@ -64,6 +65,10 @@ struct Article: Codable, Identifiable, Equatable {
         if let safeURL = url {
             articleID = safeURL.formattedArticleID
         }
+        displayDate = .empty
+        if let publishedAt = publishedAt {
+            displayDate = publishedAt.changeDateFormat(from: .server)
+        }
     }
     
     static func == (lhs: Article, rhs: Article) -> Bool {
@@ -77,6 +82,7 @@ struct Article: Codable, Identifiable, Equatable {
         lhs.publishedAt == rhs.publishedAt &&
         lhs.content == rhs.content &&
         lhs.footnote == rhs.footnote &&
-        lhs.articleID == rhs.articleID
+        lhs.articleID == rhs.articleID &&
+        lhs.displayDate == rhs.displayDate
     }
 }

@@ -48,7 +48,7 @@ extension NewsArticleWebService.EndPoints: URLRequestBuilder {
     var endPointDetail: APIEndPoint {
         switch self {
         case .topHeadlines(let pageNum):
-            return APIEndPoint(path: "top-headlines?country=us&apiKey=454b961a792749049024617cb4e24962&page=\(pageNum)")
+            return APIEndPoint(path: "top-headlines?country=us&apiKey=\(NewsAPIStore.shared.apiKey)&page=\(pageNum)")
         }
     }
     

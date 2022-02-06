@@ -62,6 +62,7 @@
 		30DD944F27AFD1C80072BC12 /* MockFailureNewsDetailWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DD944E27AFD1C80072BC12 /* MockFailureNewsDetailWebService.swift */; };
 		30DD945127AFD2210072BC12 /* NewsArticleDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DD945027AFD2210072BC12 /* NewsArticleDetailViewModelTests.swift */; };
 		30DD945327AFD7E60072BC12 /* SystemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DD945227AFD7E60072BC12 /* SystemImage.swift */; };
+		30DD945627AFE7CE0072BC12 /* NewsAPIStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DD945527AFE7CE0072BC12 /* NewsAPIStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,8 @@
 		30DD944E27AFD1C80072BC12 /* MockFailureNewsDetailWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFailureNewsDetailWebService.swift; sourceTree = "<group>"; };
 		30DD945027AFD2210072BC12 /* NewsArticleDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsArticleDetailViewModelTests.swift; sourceTree = "<group>"; };
 		30DD945227AFD7E60072BC12 /* SystemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImage.swift; sourceTree = "<group>"; };
+		30DD945427AFDDC90072BC12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		30DD945527AFE7CE0072BC12 /* NewsAPIStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPIStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +193,7 @@
 		308449C527AE4D7D00F361A2 /* NewsOrgApp */ = {
 			isa = PBXGroup;
 			children = (
+				30DD945427AFDDC90072BC12 /* Info.plist */,
 				308449FC27AE544700F361A2 /* Utilities */,
 				308449F127AE4DDA00F361A2 /* Features */,
 				308449F027AE4DC800F361A2 /* App */,
@@ -321,6 +325,7 @@
 				30844A2827AE658C00F361A2 /* URL+QueryItems.swift */,
 				30844A2927AE658C00F361A2 /* URLRequestBuilder.swift */,
 				30844A2A27AE658C00F361A2 /* WebServiceProtocol.swift */,
+				30DD945527AFE7CE0072BC12 /* NewsAPIStore.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -631,6 +636,7 @@
 				308449FB27AE520400F361A2 /* NewsDashboardViewModelProtocol.swift in Sources */,
 				30844A7C27AFBEF400F361A2 /* Likes+Builder.swift in Sources */,
 				30844A5527AEF54D00F361A2 /* NewsHeadlines+Builder.swift in Sources */,
+				30DD945627AFE7CE0072BC12 /* NewsAPIStore.swift in Sources */,
 				30844A3427AE658C00F361A2 /* Publisher+Error.swift in Sources */,
 				30844A1D27AE646300F361A2 /* JSONReader.swift in Sources */,
 				30844A2F27AE658C00F361A2 /* String+DateFormatter.swift in Sources */,
@@ -822,6 +828,7 @@
 				DEVELOPMENT_TEAM = 3P64BP7GB9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NewsOrgApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -851,6 +858,7 @@
 				DEVELOPMENT_TEAM = 3P64BP7GB9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NewsOrgApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

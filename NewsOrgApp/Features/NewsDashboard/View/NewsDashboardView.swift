@@ -22,6 +22,7 @@ struct NewsDashboardView<ViewModel>: View where ViewModel: NewsDashboardViewMode
                 }
             }
         }
+        .buttonStyle(PlainButtonStyle())
         .onAppear {
             viewModel.fetchNewsHeadlines {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

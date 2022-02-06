@@ -8,9 +8,8 @@
 import Foundation
 
 public enum DateFormat: String {
-    ///"yyyy-MM-dd"
-    case server = "yyyy-MM-dd"
+    ///"yyyy-MM-dd'T'HH:mm:ssZ"
+    case server = "yyyy-MM-dd'T'HH:mm:ssZ"
     ///"dd, MMM yyyy"
     case dispay = "dd, MMM yyyy"
 }
-

@@ -21,21 +21,39 @@ final class NewsDashboardViewModel: NewsDashboardViewModelProtocol {
     
     init(webservice: NewsArticleWebServiceProtocol = NewsArticleWebService()) {
         self.webservice = webservice
+        fetchAPIKey()
+    }
+    
+    func fetchAPIKey() {
+        var resourceFileDictionary: NSDictionary?
+        if let path = Bundle.main.path(forResource: "Info", ofType: "plist") {
+            resourceFileDictionary = NSDictionary(contentsOfFile: path)
+            if let infoDict = resourceFileDictionary {
+                NewsAPIStore.shared.apiKey = infoDict["ApiKey"] as! String
+                print("ApiKey:>>> \(NewsAPIStore.shared.apiKey) Found")
+            }
+        }
     }
     
     func fetchNewsHeadlines(completion: @escaping() -> Void) {
-        self.webservice.fetchTopHeadlines(pageNumber: pageNumber)
-            .mapError { (error) -> Error in
-                self.hasErrorOccured = (true, error)
-                completion()
-                return error
-            }.sink { _ in
-            // Nothing To Do
-            } receiveValue: { newsHeadlines in
-                self.articles = newsHeadlines.articles
-                completion()
-            }
-            .store(in: &cancellableSet)
+        if NewsAPIStore.shared.apiKey.isEmptyString {
+            let error = NSError(domain: "API Key Not Found", code: 500, userInfo: nil)
+            hasErrorOccured = (true, error)
+            completion()
+        } else {
+            self.webservice.fetchTopHeadlines(pageNumber: pageNumber)
+                .mapError { (error) -> Error in
+                    self.hasErrorOccured = (true, error)
+                    completion()
+                    return error
+                }.sink { _ in
+                    // Nothing To Do
+                } receiveValue: { newsHeadlines in
+                    self.articles = newsHeadlines.articles
+                    completion()
+                }
+                .store(in: &cancellableSet)
+        }
     }
 
 }
